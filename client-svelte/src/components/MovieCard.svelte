@@ -5,7 +5,6 @@
 
 <style>
   .movie-card {
-    /* background-image: url({poster}); */
     width: 30rem;
     height: 46.6rem;
     position: relative;

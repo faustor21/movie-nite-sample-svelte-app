@@ -40,4 +40,3 @@
     {/each}
   </div>
 </main>
-<!-- <Footer /> -->
