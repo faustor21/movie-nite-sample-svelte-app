@@ -10,5 +10,5 @@ This app will let you search for movies and their details in the [OMDb API](http
 
 ## Get started
 
-- Go to Client
-- Go to Server
+- Go to [Client](https://github.com/faustor21/movie-nite-sample-svelte-app/tree/main/client-svelte)
+- Go to [Server](https://github.com/faustor21/movie-nite-sample-svelte-app/tree/main/server)
