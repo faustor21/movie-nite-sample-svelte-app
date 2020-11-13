@@ -4,11 +4,19 @@
   import { getMovie } from '../api/movies'
 
   import Loading from '../components/Loading.svelte'
+  import NoResult from '../components/NoResult.svelte'
 
   let movie
+  let error
 
   onMount(async () => {
-    movie = await getMovie(params.id)
+    const result = await getMovie(params.id)
+
+    if (result.Response === 'False') {
+      error = result
+    } else {
+      movie = result
+    }
   })
 
   export let params = {}
@@ -100,6 +108,8 @@
         <p>{movie.Plot}</p>
       </div>
     </div>
+  {:else if error}
+    <NoResult />
   {:else}
     <div class="loading">
       <Loading />

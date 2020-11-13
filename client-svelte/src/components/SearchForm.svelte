@@ -7,13 +7,15 @@
   let searchTerm = ''
 
   const handleSubmit = async () => {
-    lastSearch.set(searchTerm)
-    // Navigate to index
-    if ($location !== '/') {
-      push('/')
-    } else {
-      moviesStore.set([])
-      moviesStore.set(await search(searchTerm))
+    if (searchTerm.trim().length > 0) {
+      lastSearch.set(searchTerm)
+      // Navigate to index
+      if ($location !== '/') {
+        push('/')
+      } else {
+        moviesStore.set([])
+        moviesStore.set(await search(searchTerm))
+      }
     }
   }
 </script>

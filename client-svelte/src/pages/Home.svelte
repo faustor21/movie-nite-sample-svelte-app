@@ -6,6 +6,7 @@
 
   import MovieCard from '../components/MovieCard.svelte'
   import Loading from '../components/Loading.svelte'
+  import NoResult from '../components/NoResult.svelte'
 
   onMount(async () => {
     moviesStore.set([])
@@ -31,12 +32,16 @@
 
 <main>
   <div class="movies">
-    {#each $moviesStore as movie (movie.imdbID)}
-      <a href="#/movie/{movie.imdbID}">
-        <MovieCard poster={movie.Poster} title={movie.Title} />
-      </a>
+    {#if $moviesStore}
+      {#each $moviesStore as movie (movie.imdbID)}
+        <a href="#/movie/{movie.imdbID}">
+          <MovieCard poster={movie.Poster} title={movie.Title} />
+        </a>
+      {:else}
+        <Loading />
+      {/each}
     {:else}
-      <Loading />
-    {/each}
+      <NoResult />
+    {/if}
   </div>
 </main>
